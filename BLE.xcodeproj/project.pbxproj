@@ -7,18 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F491DB3F2AE1726900C09C63 /* CBCentralManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB3E2AE1726900C09C63 /* CBCentralManagerMock.swift */; };
+		F491DB412AE178EF00C09C63 /* CBPeripheralMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB402AE178EF00C09C63 /* CBPeripheralMock.swift */; };
+		F491DB432AE1806600C09C63 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB422AE1806600C09C63 /* Mock.swift */; };
+		F491DB452AE1814200C09C63 /* ServiceCharacteristicsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB442AE1814200C09C63 /* ServiceCharacteristicsMock.swift */; };
 		F4FB96032ADD5C5A00662A06 /* BLEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96022ADD5C5A00662A06 /* BLEApp.swift */; };
 		F4FB96052ADD5C5A00662A06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96042ADD5C5A00662A06 /* ContentView.swift */; };
 		F4FB96072ADD5C5E00662A06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FB96062ADD5C5E00662A06 /* Assets.xcassets */; };
 		F4FB960A2ADD5C5E00662A06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FB96092ADD5C5E00662A06 /* Preview Assets.xcassets */; };
+		F4FB96132ADD623F00662A06 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96122ADD623F00662A06 /* DetailView.swift */; };
+		F4FB96152ADD677A00662A06 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96142ADD677A00662A06 /* ListView.swift */; };
+		F4FB96172ADD762D00662A06 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96162ADD762D00662A06 /* Characteristic.swift */; };
+		F4FB961A2ADD786A00662A06 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96192ADD786A00662A06 /* Peripheral.swift */; };
+		F4FB961C2ADD7A6E00662A06 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB961B2ADD7A6E00662A06 /* Service.swift */; };
+		F4FB961F2ADD7BBB00662A06 /* CBPeripheralProtocolDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB961E2ADD7BBB00662A06 /* CBPeripheralProtocolDelegate.swift */; };
+		F4FB96242ADDBB4100662A06 /* CoreBluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96232ADDBB4100662A06 /* CoreBluetoothViewModel.swift */; };
+		F4FB96262ADDBBB800662A06 /* CoreBluetoothViewModelExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96252ADDBBB800662A06 /* CoreBluetoothViewModelExtensionDelegate.swift */; };
+		F4FB96282ADDBBE800662A06 /* CoreBluetoothViewModelExtensionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB96272ADDBBE800662A06 /* CoreBluetoothViewModelExtensionSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F491DB3E2AE1726900C09C63 /* CBCentralManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBCentralManagerMock.swift; sourceTree = "<group>"; };
+		F491DB402AE178EF00C09C63 /* CBPeripheralMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBPeripheralMock.swift; sourceTree = "<group>"; };
+		F491DB422AE1806600C09C63 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		F491DB442AE1814200C09C63 /* ServiceCharacteristicsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCharacteristicsMock.swift; sourceTree = "<group>"; };
 		F4FB95FF2ADD5C5A00662A06 /* BLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FB96022ADD5C5A00662A06 /* BLEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEApp.swift; sourceTree = "<group>"; };
 		F4FB96042ADD5C5A00662A06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F4FB96062ADD5C5E00662A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4FB96092ADD5C5E00662A06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F4FB96122ADD623F00662A06 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F4FB96142ADD677A00662A06 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		F4FB96162ADD762D00662A06 /* Characteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		F4FB96192ADD786A00662A06 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		F4FB961B2ADD7A6E00662A06 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F4FB961E2ADD7BBB00662A06 /* CBPeripheralProtocolDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBPeripheralProtocolDelegate.swift; sourceTree = "<group>"; };
+		F4FB96232ADDBB4100662A06 /* CoreBluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBluetoothViewModel.swift; sourceTree = "<group>"; };
+		F4FB96252ADDBBB800662A06 /* CoreBluetoothViewModelExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBluetoothViewModelExtensionDelegate.swift; sourceTree = "<group>"; };
+		F4FB96272ADDBBE800662A06 /* CoreBluetoothViewModelExtensionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreBluetoothViewModelExtensionSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +58,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F491DB3D2AE1724A00C09C63 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F491DB3E2AE1726900C09C63 /* CBCentralManagerMock.swift */,
+				F491DB402AE178EF00C09C63 /* CBPeripheralMock.swift */,
+				F491DB422AE1806600C09C63 /* Mock.swift */,
+				F491DB442AE1814200C09C63 /* ServiceCharacteristicsMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		F4FB95F62ADD5C5A00662A06 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +89,11 @@
 			isa = PBXGroup;
 			children = (
 				F4FB96022ADD5C5A00662A06 /* BLEApp.swift */,
-				F4FB96042ADD5C5A00662A06 /* ContentView.swift */,
+				F491DB3D2AE1724A00C09C63 /* Mock */,
+				F4FB961D2ADD7B9500662A06 /* Delegate */,
+				F4FB96182ADD783E00662A06 /* Store */,
+				F4FB96292ADDBE1600662A06 /* View */,
+				F4FB96222ADDBADE00662A06 /* CoreBluetooth */,
 				F4FB96062ADD5C5E00662A06 /* Assets.xcassets */,
 				F4FB96082ADD5C5E00662A06 /* Preview Content */,
 			);
@@ -65,6 +106,44 @@
 				F4FB96092ADD5C5E00662A06 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F4FB96182ADD783E00662A06 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB96162ADD762D00662A06 /* Characteristic.swift */,
+				F4FB96192ADD786A00662A06 /* Peripheral.swift */,
+				F4FB961B2ADD7A6E00662A06 /* Service.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		F4FB961D2ADD7B9500662A06 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB961E2ADD7BBB00662A06 /* CBPeripheralProtocolDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		F4FB96222ADDBADE00662A06 /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB96232ADDBB4100662A06 /* CoreBluetoothViewModel.swift */,
+				F4FB96252ADDBBB800662A06 /* CoreBluetoothViewModelExtensionDelegate.swift */,
+				F4FB96272ADDBBE800662A06 /* CoreBluetoothViewModelExtensionSwiftUIView.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		F4FB96292ADDBE1600662A06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB96042ADD5C5A00662A06 /* ContentView.swift */,
+				F4FB96122ADD623F00662A06 /* DetailView.swift */,
+				F4FB96142ADD677A00662A06 /* ListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +216,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FB96152ADD677A00662A06 /* ListView.swift in Sources */,
+				F4FB961C2ADD7A6E00662A06 /* Service.swift in Sources */,
+				F4FB961A2ADD786A00662A06 /* Peripheral.swift in Sources */,
+				F491DB432AE1806600C09C63 /* Mock.swift in Sources */,
+				F4FB96262ADDBBB800662A06 /* CoreBluetoothViewModelExtensionDelegate.swift in Sources */,
+				F491DB3F2AE1726900C09C63 /* CBCentralManagerMock.swift in Sources */,
+				F491DB452AE1814200C09C63 /* ServiceCharacteristicsMock.swift in Sources */,
+				F4FB96282ADDBBE800662A06 /* CoreBluetoothViewModelExtensionSwiftUIView.swift in Sources */,
 				F4FB96052ADD5C5A00662A06 /* ContentView.swift in Sources */,
+				F4FB96172ADD762D00662A06 /* Characteristic.swift in Sources */,
+				F4FB96132ADD623F00662A06 /* DetailView.swift in Sources */,
+				F491DB412AE178EF00C09C63 /* CBPeripheralMock.swift in Sources */,
 				F4FB96032ADD5C5A00662A06 /* BLEApp.swift in Sources */,
+				F4FB961F2ADD7BBB00662A06 /* CBPeripheralProtocolDelegate.swift in Sources */,
+				F4FB96242ADDBB4100662A06 /* CoreBluetoothViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +367,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +397,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

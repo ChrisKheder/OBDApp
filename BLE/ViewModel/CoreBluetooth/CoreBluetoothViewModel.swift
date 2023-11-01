@@ -10,7 +10,6 @@ import CoreBluetooth
 
 class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDelegate, CBCentralManagerProtocolDelegate{
     
-    
     @Published var isBLEPower: Bool = false
     @Published var isSearching: Bool = false
     @Published var isConnected: Bool = false
@@ -69,12 +68,13 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
     func connectPeripheral(_ selectPeripheral: Peripheral?){
         guard let connectPeripheral = selectPeripheral else { return }
         connectedPeripheral = selectPeripheral
-        centralManager.connect(connectPeripheral.peripheral)
+        centralManager.connect(connectPeripheral.peripheral, options: nil)
+        print("# Connected")
     }
     
     func disconnectPeripheral(){
-        guard let connectPeripheral = connectedPeripheral else { return }
-        centralManager.cancelPeripheralConnection(connectedPeripheral as! CBPeripheralProtocol)
+        guard let connectedPeripheral = connectedPeripheral else { return }
+        centralManager.cancelPeripheralConnection(connectedPeripheral.peripheral)
     }
     
     //
@@ -86,10 +86,10 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
         }
     }
     
-    func didDiscover(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol, advertismentData: [String : Any], rssi: NSNumber){
+    func didDiscover(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol, advertisementData: [String : Any], rssi: NSNumber){
         if rssi.intValue >= 0 { return }
         
-        let peripheralName = advertismentData[CBAdvertisementDataLocalNameKey] as? String ?? nil
+        let peripheralName = advertisementData[CBAdvertisementDataLocalNameKey] as? String ?? nil
         var _name = "NoName"
         
         if peripheralName != nil {
@@ -100,11 +100,11 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
         
         let foundPeripheral: Peripheral = Peripheral(_peripheral: peripheral,
                                                      _name: _name,
-                                                     _advData: advertismentData,
+                                                     _advData: advertisementData,
                                                      _rssi: rssi,
                                                      _discoverCount: 0)
         
-        if let index = foundPeripherals.firstIndex(where: {$0.peripheral.identifier.uuidString == peripheral.identifier.uuid}){
+        if let index = foundPeripherals.firstIndex(where: {$0.peripheral.identifier.uuidString == peripheral.identifier.uuidString}){
             if foundPeripherals[index].discoverCount % 50 == 0 {
                 foundPeripherals[index].name = _name
                 foundPeripherals[index].rssi = rssi.intValue
@@ -121,8 +121,8 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
     func didConnect(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol){
         guard let connectedPeripheral = connectedPeripheral else { return }
         isConnected = true
-        connectedPeripheral.delegate = self
-        connectedPeripheral.discoverServices([])
+        connectedPeripheral.peripheral.delegate = self
+        connectedPeripheral.peripheral.discoverServices(nil)
     }
     
     func didFailToConnect(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol, error: Error?){
@@ -135,14 +135,14 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
     }
     
     func connectionEventDidOccur(_ central: CBCentralManagerProtocol, event: CBConnectionEvent, peripheral: CBPeripheralProtocol){
+        print("Connected")
+    }
+    
+    func WillRestoreState(_ central: CBCentralManagerProtocol, dict: [String : Any]){
         
     }
     
-    func willRestoreState(_ central: CBCentralManagerProtocol, dict: [String : Any]){
-        
-    }
-    
-    func didUpdateANCSauthorization(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol){
+    func didUpdateANCSAuthorization(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol){
         
     }
     
@@ -159,27 +159,30 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
     
     func didDiscoverCharacteristics(_ peripheral: CBPeripheralProtocol, service: CBService, error: Error?){
         service.characteristics?.forEach{ characteristic in
-            let setCharacteristic: CBCharacteristic = Characteristic(_characteristic: characteristic,
-                                                                     _description: "",
+            let setCharacteristic: Characteristic = Characteristic(_characteristic: characteristic,
+                                                                   _description: "",
                                                                      _uuid: characteristic.uuid,
                                                                      _readValue: "",
                                                                      _service: characteristic.service!)
             foundCharacteristics.append(setCharacteristic)
             peripheral.readValue(for: characteristic)
             
+           
+            
         }
     }
     
-    func didUpdateValue(_ peripheral: CBPeripheral, characteristic: CBCharacteristic, error: Error?){
+    func didUpdateValue(_ peripheral: CBPeripheralProtocol, characteristic: CBCharacteristic, error: Error?){
         guard let characteristicValue = characteristic.value else { return }
         
         if let index = foundCharacteristics.firstIndex(where: {$0.uuid.uuidString == characteristic.uuid.uuidString}){
             
-            foundCharacteristics[index].readValue = characteristicValue.map({String(format:"%02x", $0)}).joined()
+            foundCharacteristics[index].readValue = characteristicValue.map({String(format:"%d", $0)}).joined()
+            print("# Characteristic: \(characteristicValue)")
         }
     }
     
-    func didwriteValue(_ peripheral: CBPeripheral, descriptor: CBDescriptor, error: Error?){
+    func didWriteValue(_ peripheral: CBPeripheralProtocol, descriptor: CBDescriptor, error: Error?){
         
     }
     

@@ -31,6 +31,7 @@
 		F491DB402AE178EF00C09C63 /* CBPeripheralMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBPeripheralMock.swift; sourceTree = "<group>"; };
 		F491DB422AE1806600C09C63 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		F491DB442AE1814200C09C63 /* ServiceCharacteristicsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCharacteristicsMock.swift; sourceTree = "<group>"; };
+		F4D9F6E12AEEA0840085FCBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F4FB95FF2ADD5C5A00662A06 /* BLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FB96022ADD5C5A00662A06 /* BLEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEApp.swift; sourceTree = "<group>"; };
 		F4FB96042ADD5C5A00662A06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +70,33 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		F4D9F6DE2AEE6BE00085FCBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB961D2ADD7B9500662A06 /* Delegate */,
+				F491DB3D2AE1724A00C09C63 /* Mock */,
+				F4FB96182ADD783E00662A06 /* Store */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4D9F6DF2AEE6CF10085FCBD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB96222ADDBADE00662A06 /* CoreBluetooth */,
+				F4D9F6E02AEE6D330085FCBD /* Navigation */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F4D9F6E02AEE6D330085FCBD /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F4FB96022ADD5C5A00662A06 /* BLEApp.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		F4FB95F62ADD5C5A00662A06 = {
 			isa = PBXGroup;
 			children = (
@@ -88,14 +116,12 @@
 		F4FB96012ADD5C5A00662A06 /* BLE */ = {
 			isa = PBXGroup;
 			children = (
-				F4FB96022ADD5C5A00662A06 /* BLEApp.swift */,
-				F491DB3D2AE1724A00C09C63 /* Mock */,
-				F4FB961D2ADD7B9500662A06 /* Delegate */,
-				F4FB96182ADD783E00662A06 /* Store */,
-				F4FB96292ADDBE1600662A06 /* View */,
-				F4FB96222ADDBADE00662A06 /* CoreBluetooth */,
-				F4FB96062ADD5C5E00662A06 /* Assets.xcassets */,
+				F4D9F6E12AEEA0840085FCBD /* Info.plist */,
+				F4D9F6DE2AEE6BE00085FCBD /* Model */,
 				F4FB96082ADD5C5E00662A06 /* Preview Content */,
+				F4FB96292ADDBE1600662A06 /* View */,
+				F4D9F6DF2AEE6CF10085FCBD /* ViewModel */,
+				F4FB96062ADD5C5E00662A06 /* Assets.xcassets */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -362,12 +388,15 @@
 				DEVELOPMENT_TEAM = AN8Q24H8Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BLE/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow using Bluetooth for discovering peripherals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,12 +421,15 @@
 				DEVELOPMENT_TEAM = AN8Q24H8Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BLE/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow using Bluetooth for discovering peripherals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

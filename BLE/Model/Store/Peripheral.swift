@@ -11,7 +11,7 @@ class Peripheral: Identifiable{
     var id: UUID
     var peripheral: CBPeripheralProtocol
     var name: String
-    var advertismentData: [String : Any]
+    var advertisementData: [String : Any]
     var rssi: Int
     var discoverCount: Int
     
@@ -23,8 +23,9 @@ class Peripheral: Identifiable{
         id = UUID()
         peripheral = _peripheral
         name = _name
-        advertismentData = _advData
+        advertisementData = _advData
         rssi = _rssi.intValue
         discoverCount = _discoverCount + 1
     }
 }
+

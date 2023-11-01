@@ -2,7 +2,7 @@
 //  CoreBluetoothViewModelExtensionDelegate.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-16.
+//  Created by Simon Khederchah on 2023-10-16. 
 //
 
 import CoreBluetooth
@@ -22,7 +22,7 @@ extension CoreBluetoothViewModel: CBCentralManagerDelegate, CBPeripheralDelegate
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?){
-        didwriteValue(peripheral, descriptor: descriptor, error: error)
+        didWriteValue(peripheral, descriptor: descriptor, error: error)
     }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -30,11 +30,11 @@ extension CoreBluetoothViewModel: CBCentralManagerDelegate, CBPeripheralDelegate
     }
     
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]){
-        willRestoreState(central, dict: dict)
+        WillRestoreState(central, dict: dict)
     }
     
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData advertismentData: [String: Any], rssi RSSI: NSNumber){
-        didDiscover(central, peripheral: peripheral, advertismentData: advertismentData, rssi: RSSI)
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber){
+        didDiscover(central, peripheral: peripheral, advertisementData: advertisementData, rssi: RSSI)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral){
@@ -56,6 +56,7 @@ extension CoreBluetoothViewModel: CBCentralManagerDelegate, CBPeripheralDelegate
     }
     
     func centralManager(_ central: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral){
-        didUpdateANCSauthorization(central, peripheral: peripheral)
+        didUpdateANCSAuthorization(central, peripheral: peripheral)
     }
+    
 }

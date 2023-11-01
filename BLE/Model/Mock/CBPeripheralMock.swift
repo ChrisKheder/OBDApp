@@ -95,7 +95,7 @@ class CBPeripheralMock: Mock, CBPeripheralProtocol {
         }
     }
     
-    func setNotifyValue(_ enable: Bool, for characteristic: CBCharacteristic) {
+    func setNotifyValue(_ enabled: Bool, for characteristic: CBCharacteristic) {
         log(#function)
     }
     

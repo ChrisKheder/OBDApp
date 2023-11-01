@@ -2,7 +2,7 @@
 //  CBCentralManagerMock.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-19.
+//  Created by Christian Khederchah on 2023-10-19.
 //
 
 import Foundation
@@ -42,7 +42,7 @@ public class CBCentralManagerMock : Mock, CBCentralManagerProtocol {
             // Dummy peripheral
             delegate.didDiscover(self,
                                  peripheral: discoveredPeripheral,
-                                 advertismentData: [:],
+                                 advertisementData: ["RPM" : 1],
                                  rssi: -30)
         }
     }

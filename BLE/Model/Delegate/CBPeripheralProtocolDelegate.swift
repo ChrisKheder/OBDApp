@@ -45,7 +45,7 @@ public protocol CBCentralManagerProtocolDelegate{
     
     func didDiscover(_ central: CBCentralManagerProtocol,
                      peripheral: CBPeripheralProtocol,
-                     advertismentData: [String : Any],
+                     advertisementData: [String : Any],
                      rssi: NSNumber)
     
     func didConnect(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol)
@@ -72,6 +72,8 @@ public protocol CBCentralManagerProtocol{
     
     func stopScan()
     
+    func connect(_ peripheral: CBPeripheralProtocol, options: [String: Any]?)
+    
     func cancelPeripheralConnection(_ peripheral: CBPeripheralProtocol)
     
     func retrievePeripherals(_ identifiers: [UUID]) -> [CBPeripheralProtocol]
@@ -79,7 +81,7 @@ public protocol CBCentralManagerProtocol{
 
 extension CBCentralManager : CBCentralManagerProtocol{
     
-    public func connect(_ peripheral: CBPeripheralProtocol, options: [String : Any]? = nil){
+    public func connect(_ peripheral: CBPeripheralProtocol, options: [String : Any]?){
         guard let peripheral = peripheral as? CBPeripheral else { return }
         connect(peripheral, options: options)
     }

@@ -37,6 +37,7 @@ struct ListView: View{
                         
                         
                     } else {
+                        //first stack
                         Color.gray.opacity(0.6)
                             .edgesIgnoringSafeArea(.all)
                         ZStack{

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreBluetooth
+import Foundation
 
 class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDelegate, CBCentralManagerProtocolDelegate{
     
@@ -21,18 +22,25 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
     private var centralManager: CBCentralManagerProtocol!
     private var connectedPeripheral: Peripheral!
     
+    
+    //--------Buffer variables--------//
+    private var messageQueue: String = ""
+    private var timer: Timer?
+    //-------------------------------//
+    
     private let serviceUUID: CBUUID = CBUUID()
     
+    var mqtt: IoTManager = IoTManager()
     
     //Setting the initializing. #if#end is a if statement that is checked before compiling.
     //Depending on if the compiling is made for simulation or not will a mock Central manager be made because CB cannot be simulated.
     override init(){
         super.init()
-        #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         centralManager = CBCentralManagerMock(delegate: self, queue: nil)
-        #else
+#else
         centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
-        #endif
+#endif
     }
     
     //Reset the configurations, and empting all the list.
@@ -105,7 +113,7 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
                                                      _discoverCount: 0)
         
         if let index = foundPeripherals.firstIndex(where: {$0.peripheral.identifier.uuidString == peripheral.identifier.uuidString}){
-            if foundPeripherals[index].discoverCount % 50 == 0 {
+            if (foundPeripherals[index].discoverCount % 50 == 0) && !(foundPeripherals[index].name == "NoName") {
                 foundPeripherals[index].name = _name
                 foundPeripherals[index].rssi = rssi.intValue
                 foundPeripherals[index].discoverCount += 1
@@ -117,7 +125,7 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
             DispatchQueue.main.async{ self.isSearching = false }
         }
     }
-
+    
     func didConnect(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol){
         guard let connectedPeripheral = connectedPeripheral else { return }
         isConnected = true
@@ -161,13 +169,18 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
         service.characteristics?.forEach{ characteristic in
             let setCharacteristic: Characteristic = Characteristic(_characteristic: characteristic,
                                                                    _description: "",
-                                                                     _uuid: characteristic.uuid,
-                                                                     _readValue: "",
-                                                                     _service: characteristic.service!)
+                                                                   _uuid: characteristic.uuid,
+                                                                   _readValue: "",
+                                                                   _service: characteristic.service!)
+            
             foundCharacteristics.append(setCharacteristic)
+            
+            //setNotifyValue allows notifcation of update value which lets us update the displayed value.
+            peripheral.setNotifyValue(true, for: characteristic)
             peripheral.readValue(for: characteristic)
             
-           
+            
+            
             
         }
     }
@@ -175,17 +188,78 @@ class CoreBluetoothViewModel: NSObject, ObservableObject, CBPeripheralProtocolDe
     func didUpdateValue(_ peripheral: CBPeripheralProtocol, characteristic: CBCharacteristic, error: Error?){
         guard let characteristicValue = characteristic.value else { return }
         
+        
+        
+        //---------------------------------------- code for multiple characteristics------------------------------//
         if let index = foundCharacteristics.firstIndex(where: {$0.uuid.uuidString == characteristic.uuid.uuidString}){
             
+            //------------------------Convert hex bit into decimal string------------------------//
             foundCharacteristics[index].readValue = characteristicValue.map({String(format:"%d", $0)}).joined()
-            print("# Characteristic: \(characteristicValue)")
+
+            //check if we already have a stored value for the characteristic in the buffer, if not store it in the buffer
+            if !(mqtt.containing(field: fields[characteristic.uuid.uuidString] ?? "field8=")){
+                mqtt.addMessage(fields[characteristic.uuid.uuidString] ?? "field8=" + foundCharacteristics[index].readValue)
+            }
+            
+           
+            
         }
     }
-    
-    func didWriteValue(_ peripheral: CBPeripheralProtocol, descriptor: CBDescriptor, error: Error?){
+        
+        func didWriteValue(_ peripheral: CBPeripheralProtocol, descriptor: CBDescriptor, error: Error?){
+            
+        }
         
     }
-    
-}
 
+
+//-------------------------Different working codes for didUpdateValue that fulfill different functions-----------------------------//
+
+
+//---------------------------------------Working code for sending one field at a time---------------------------------------//
+//            if foundCharacteristics[index].readValue != ""{
+//                //            Publish data to sevrer as soon as the characteristic updates.
+//                mqtt.publishData(topic: "channels/2351521/publish", message: "\(fields[characteristic.uuid.uuidString] ?? "field8=")" + "\(foundCharacteristics[index].readValue)")
+//
+//
+//            }else{
+//                print("\(foundCharacteristics[index].readValue)")
+//            }
+   
+   //----------------------------------------One Characteristic that send hex-encoded string------------------------------//
+   
+   //        if let index = foundCharacteristics.firstIndex(where: { $0.uuid.uuidString == characteristic.uuid.uuidString }) {
+   //                // Convert hexadecimal string to data
+   //                if let data = data(fromHexString: characteristicValue) {
+   //                    // Convert data to string
+   //                    if let stringValue = String(data: data, encoding: .utf8) {
+   //                        foundCharacteristics[index].readValue = stringValue
+   //                        //print("Characteristic Value: \(stringValue)")
+   //                    } else {
+   //                        print("Failed to convert data to UTF-8 string.")
+   //                    }
+   //                } else {
+   //                    print("Failed to convert hexadecimal string to data.")
+   //                }
+   //            }
+   //        }
+   //
+   //        // Helper function to convert a hexadecimal string to data
+   //        func data(fromHexString hexString: Data) -> Data? {
+   //            var hex = hexString.map { String(format: "%02x", $0) }.joined()
+   //            var data = Data()
+   //
+   //            while hex.count > 0 {
+   //                let index = hex.index(hex.startIndex, offsetBy: 2)
+   //                let byte = String(hex[..<index])
+   //                hex = String(hex[index...])
+   //
+   //                if var num = UInt8(byte, radix: 16) {
+   //                    data.append(&num, count: 1)
+   //                } else {
+   //                    print("Invalid hexadecimal character detected: \(byte)")
+   //                    return nil
+   //                }
+   //            }
+   //            return data
 

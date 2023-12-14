@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListView: View{
     @EnvironmentObject var bleManager: CoreBluetoothViewModel
-    
+
     var body: some View {
         ZStack{
             bleManager.navigationToDetailView(isDetailViewLinkActive: $bleManager.isConnected)
@@ -31,8 +31,11 @@ struct ListView: View{
                         Text(bleManager.isBLEPower ? "" : "Bluetooth seetings are OFF")
                             .padding(10)
                         
+                        Text(bleManager.foundPeripherals.isEmpty ? "" : "Choose device to connect.")
+                            .foregroundColor(Color("TextColor"))
+                        
                         List{
-                            PeripheralCells()
+                            PeripheralCells(mqtt: bleManager.mqtt)
                         }
                         
                         
@@ -69,17 +72,23 @@ struct ListView: View{
     
     struct PeripheralCells: View {
         @EnvironmentObject var bleManager: CoreBluetoothViewModel
+        var mqtt: IoTManager
         
         var body: some View{
             ForEach(0..<bleManager.foundPeripherals.count, id: \.self){ num in
+                if !(bleManager.foundPeripherals[num].name == "NoName"){
                 Button(action: {
                     bleManager.connectPeripheral(bleManager.foundPeripherals[num])
+                    mqtt.connectToIoTDevice()
+                    mqtt.startSending()
                 }){
                     HStack{
+                        
                         Text("\(bleManager.foundPeripherals[num].name)")
                         Spacer()
                         Text("\(bleManager.foundPeripherals[num].rssi) dBm")
                     }
+                }
                 }
             }
         }

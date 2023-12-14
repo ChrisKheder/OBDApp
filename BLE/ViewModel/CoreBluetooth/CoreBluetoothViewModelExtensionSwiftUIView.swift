@@ -2,7 +2,7 @@
 //  CoreBluetoothViewModelExtensionSwiftUIView.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-16.
+//  Created by Christian Khederchah on 2023-10-16.
 //
 
 import SwiftUI
@@ -12,7 +12,7 @@ extension CoreBluetoothViewModel{
     func navigationToDetailView(isDetailViewLinkActive: Binding<Bool>) -> some View{
         let navigationToDetailView =
             NavigationLink("",
-                                   destination: DetailView(),
+                                   destination: CustomGaugeView(),
                                    isActive: isDetailViewLinkActive).frame(width: 0, height: 0)
             return navigationToDetailView
     }
@@ -27,6 +27,7 @@ extension CoreBluetoothViewModel{
                        height: 50,
                        alignment: .center)
                 .foregroundColor(Color.blue)
+                .opacity(1)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.blue, lineWidth: 2))

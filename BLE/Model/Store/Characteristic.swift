@@ -2,7 +2,7 @@
 //  Characteristic.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-16.
+//  Created by Christian Khederchah on 2023-10-16.
 //
 
 import CoreBluetooth
@@ -25,7 +25,7 @@ class Characteristic: Identifiable{
         characteristic = _characteristic
         description = _description == "" ? "NoData" : _description
         uuid = _uuid
-        readValue = _readValue == "" ? "NoName" : _readValue
+        readValue = _readValue == "" ? "Noname" : _readValue
         service = _service
     }
 }

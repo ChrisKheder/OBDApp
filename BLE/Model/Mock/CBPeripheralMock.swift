@@ -2,7 +2,7 @@
 //  CBPeripheralMock.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-19.
+//  Created by Christian Khederchah on 2023-10-19.
 //
 
 import Foundation
@@ -87,7 +87,7 @@ class CBPeripheralMock: Mock, CBPeripheralProtocol {
         mutableCharacteristic.value = serviceCharacteristic.value(uuid: mutableCharacteristic.uuid)
         
         if let _ = mutableCharacteristic.value{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+            DispatchQueue.main.asyncAfter(deadline: .now()){
                 delegate.didUpdateValue(self,
                                         characteristic: characteristic,
                                         error: nil)

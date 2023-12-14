@@ -2,7 +2,7 @@
 //  ServiceCharacteristicsMock.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-19.
+//  Created by Christian Khederchah on 2023-10-19.
 //
 
 import Foundation

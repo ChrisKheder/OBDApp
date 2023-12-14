@@ -2,7 +2,7 @@
 //  DetailView.swift
 //  BLE
 //
-//  Created by Simon Khederchah on 2023-10-16.
+//  Created by Christian Khederchah on 2023-10-16.
 //
 
 import SwiftUI
@@ -41,7 +41,7 @@ struct DetailView: View {
                     ForEach(0..<bleManager.foundCharacteristics.count, id: \.self){ j in
                         if bleManager.foundServices[num].uuid == bleManager.foundCharacteristics[j].service.uuid{
                             Button(action:{
-                                //write action
+                                //Button action
                             }){
                                 VStack{
                                     HStack{

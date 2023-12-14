@@ -59,6 +59,7 @@ public protocol CBCentralManagerProtocolDelegate{
                                  peripheral: CBPeripheralProtocol)
     
     func didUpdateANCSAuthorization(_ central: CBCentralManagerProtocol, peripheral: CBPeripheralProtocol)
+    
 }
 
 public protocol CBCentralManagerProtocol{

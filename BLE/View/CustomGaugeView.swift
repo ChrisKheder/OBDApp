@@ -25,12 +25,14 @@ struct CustomGaugeView: View {
                 }
                 
                 Text(bleManager.isBLEPower ? "" : "Bluetooth settings are OFF")
-                    .padding(10)
+//                    .padding(10)
                 
                 List{
                     CharacteristicCells()
                 }
-                .navigationBarTitle("Connection result")
+                MapView()
+                
+                .navigationBarTitle("OBD2")
                 .navigationBarBackButtonHidden(true)
 
             }
@@ -43,7 +45,7 @@ struct CustomGaugeView: View {
         
         var body: some View {
             ForEach(0..<bleManager.foundServices.count, id: \.self) { num in
-                Section(header: Text("\(bleManager.foundServices[num].uuid.uuidString)")) {
+                Section(header: Text("Live values")) {
                     CharacteristicCellView(service: bleManager.foundServices[num] )
                 }
             }

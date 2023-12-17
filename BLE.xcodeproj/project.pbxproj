@@ -10,6 +10,8 @@
 		E4611E6EBF935D72A92DD8F1 /* Pods_BLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD99B8349AC77222338B1E8 /* Pods_BLE.framework */; };
 		F447C6632AF5476100B2895F /* CharacteristicDictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F447C6622AF5476100B2895F /* CharacteristicDictionaries.swift */; };
 		F46C8CFC2B1BD22C0005FF01 /* MQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C8CFB2B1BD22C0005FF01 /* MQTT.swift */; };
+		F4840E952B2F22DD0025D466 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4840E942B2F22DD0025D466 /* LocationManager.swift */; };
+		F4840E972B2F230D0025D466 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4840E962B2F230D0025D466 /* MapView.swift */; };
 		F491DB3F2AE1726900C09C63 /* CBCentralManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB3E2AE1726900C09C63 /* CBCentralManagerMock.swift */; };
 		F491DB412AE178EF00C09C63 /* CBPeripheralMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB402AE178EF00C09C63 /* CBPeripheralMock.swift */; };
 		F491DB432AE1806600C09C63 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491DB422AE1806600C09C63 /* Mock.swift */; };
@@ -38,6 +40,8 @@
 		DDA9D8C9E033F6C269ADAB1F /* Pods-BLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLE.release.xcconfig"; path = "Target Support Files/Pods-BLE/Pods-BLE.release.xcconfig"; sourceTree = "<group>"; };
 		F447C6622AF5476100B2895F /* CharacteristicDictionaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicDictionaries.swift; sourceTree = "<group>"; };
 		F46C8CFB2B1BD22C0005FF01 /* MQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT.swift; sourceTree = "<group>"; };
+		F4840E942B2F22DD0025D466 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F4840E962B2F230D0025D466 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F491DB3E2AE1726900C09C63 /* CBCentralManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBCentralManagerMock.swift; sourceTree = "<group>"; };
 		F491DB402AE178EF00C09C63 /* CBPeripheralMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBPeripheralMock.swift; sourceTree = "<group>"; };
 		F491DB422AE1806600C09C63 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
@@ -93,6 +97,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F4840E932B2F22800025D466 /* LocationTracking */ = {
+			isa = PBXGroup;
+			children = (
+				F4840E942B2F22DD0025D466 /* LocationManager.swift */,
+			);
+			path = LocationTracking;
+			sourceTree = "<group>";
+		};
 		F491DB3D2AE1724A00C09C63 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 		F4D9F6DF2AEE6CF10085FCBD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F4840E932B2F22800025D466 /* LocationTracking */,
 				F49E0F472B1647B200C71FBA /* IoT */,
 				F4FB96222ADDBADE00662A06 /* CoreBluetooth */,
 				F4D9F6E02AEE6D330085FCBD /* Navigation */,
@@ -234,6 +247,7 @@
 				F4FB96042ADD5C5A00662A06 /* ContentView.swift */,
 				F4FB96142ADD677A00662A06 /* ListView.swift */,
 				F4F9AD9D2AFBA33600677719 /* CustomGaugeView.swift */,
+				F4840E962B2F230D0025D466 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,11 +375,13 @@
 				F4FB96262ADDBBB800662A06 /* CoreBluetoothViewModelExtensionDelegate.swift in Sources */,
 				F4F9AD9B2AFAA61100677719 /* CustomGaugeStyle.swift in Sources */,
 				F491DB3F2AE1726900C09C63 /* CBCentralManagerMock.swift in Sources */,
+				F4840E972B2F230D0025D466 /* MapView.swift in Sources */,
 				F447C6632AF5476100B2895F /* CharacteristicDictionaries.swift in Sources */,
 				F491DB452AE1814200C09C63 /* ServiceCharacteristicsMock.swift in Sources */,
 				F4FB96282ADDBBE800662A06 /* CoreBluetoothViewModelExtensionSwiftUIView.swift in Sources */,
 				F4FB96052ADD5C5A00662A06 /* ContentView.swift in Sources */,
 				F4F9AD9E2AFBA33600677719 /* CustomGaugeView.swift in Sources */,
+				F4840E952B2F22DD0025D466 /* LocationManager.swift in Sources */,
 				F4FB96172ADD762D00662A06 /* Characteristic.swift in Sources */,
 				F4FB96132ADD623F00662A06 /* DetailView.swift in Sources */,
 				F491DB412AE178EF00C09C63 /* CBPeripheralMock.swift in Sources */,
@@ -508,6 +524,7 @@
 				INFOPLIST_FILE = BLE/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow using Bluetooth for discovering peripherals";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using Location for GPS feature.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -542,6 +559,7 @@
 				INFOPLIST_FILE = BLE/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow for bluetooth use";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow using Bluetooth for discovering peripherals";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using Location for GPS feature.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

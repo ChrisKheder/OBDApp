@@ -67,7 +67,7 @@ struct ListView: View{
             }
         }
         
-        .navigationBarTitle("SwiftUI-BLE")
+        .navigationBarTitle("BLE APP")
     }
     
     struct PeripheralCells: View {

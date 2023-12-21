@@ -60,7 +60,7 @@ extension LocationManager: CLLocationManagerDelegate {
             locations.last.map{
                 region = MKCoordinateRegion(
                     center: $0.coordinate,
-                    span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                    span: .init(latitudeDelta: 0.005, longitudeDelta: 0.005)
                     )
             }
         }

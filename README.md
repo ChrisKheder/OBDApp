@@ -8,15 +8,24 @@ MapKit and CLLocation is used to present the devices location on a map.
 
 
 BUILT WITH:
-Xcode: 14.3.1
-Swift: 5.8.1
-CoreBluetooth
-CocoaMQTT
-MapKit
-CLLocation
+
+-Xcode: 14.3.1
+
+-Swift: 5.8.1
+
+-CoreBluetooth
+
+-CocoaMQTT
+
+-MapKit
+
+-CLLocation
+
+
 
 MINIMUM DEPLOYMENT:
-iOS: 16.4
+
+-iOS: 16.4
 
 ![firstScreen](https://github.com/ChrisKheder/OBDApp/assets/117918800/f46b7b22-4ed9-4733-9768-b43bd9499efc)
 

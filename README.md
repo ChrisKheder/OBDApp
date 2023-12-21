@@ -7,3 +7,21 @@ CocoaMQTT is then used to uphold a connection and to send data ecery 20seconds t
 MapKit and CLLocation is used to present the devices location on a map.
 
 
+BUILT WITH:
+Xcode: 14.3.1
+Swift: 5.8.1
+CoreBluetooth
+CocoaMQTT
+MapKit
+CLLocation
+
+MINIMUM DEPLOYMENT:
+iOS: 16.4
+
+![firstScreen](https://github.com/ChrisKheder/OBDApp/assets/117918800/f46b7b22-4ed9-4733-9768-b43bd9499efc)
+
+![secondScreen](https://github.com/ChrisKheder/OBDApp/assets/117918800/5f21b416-192d-45eb-be95-90cc1823dbe8)
+
+![lastScreen](https://github.com/ChrisKheder/OBDApp/assets/117918800/d73efec8-4a03-4e81-aac4-c0db626e23db)
+
+

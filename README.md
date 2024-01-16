@@ -31,6 +31,6 @@ MINIMUM DEPLOYMENT:
 
 ![secondScreen](https://github.com/ChrisKheder/OBDApp/assets/117918800/5f21b416-192d-45eb-be95-90cc1823dbe8)
 
-![IMG_1413](https://github.com/ChrisKheder/OBDApp/assets/117918800/a990b3af-c432-4ab0-a42f-8f2ac56c663a)
+![screen](https://github.com/ChrisKheder/OBDApp/assets/117918800/1687a522-72cc-4fa4-83ab-d5119083c1d4)
 
 

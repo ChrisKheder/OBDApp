@@ -22,10 +22,15 @@ BUILT WITH:
 -CLLocation
 
 
-
 MINIMUM DEPLOYMENT:
 
 -iOS: 16.4
+
+Relevant repositories to the project:
+
+-Arduino OBD repository: [https://github.com/GiorgiD99/OBD2-scanner-with-BLE-Vehicle-simulator ](url)
+
+-Flask website repository: https://github.com/KevinCodeGitHub/Flask_Website 
 
 ![firstScreen](https://github.com/ChrisKheder/OBDApp/assets/117918800/f46b7b22-4ed9-4733-9768-b43bd9499efc)
 
